@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Guess the number-game!</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  </head>
+  <body>
+    <h2>Level: {{level}} / 5</h2>
+    <h2>The answer is: {{answer}}</h2>
+    <p >Your guess: {{guess | safe}}</p>
+    <p>Points: {{points}}</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">Next question -></button>
+    </form>
+  </body>
+</html>

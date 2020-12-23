@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Guess the number-game!</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  </head>
+  <body>
+    <h1>Guess the number right and beat the scoreboard!</h1>
+
+    {% if not user.is_authenticated %}
+    <p>
+      <a href="/login"><span class="blink">Log in</span></a>
+    </p>
+    <p>
+      <a href="/signup"><span class="blink">Create new user</span></a>
+    </p>
+    {% else %}
+    <p>You are logged in as: {{user.username}}</p>
+    <h2>
+      <a href="/game"><span class="blink">Start playing!</span></a>
+    </h2>
+    <form action="logout/" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Logout" />
+    </form>
+    {% endif %}
+  </body>
+</html>
